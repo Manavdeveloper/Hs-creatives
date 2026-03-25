@@ -4764,4 +4764,256 @@
       <span class="service-num">02</span>
       <h3 class="service-name">Digital Design</h3>
       <p class="service-desc">Websites, apps, and interfaces designed with precision — where aesthetics and usability exist in perfect harmony.</p>
+      <a href="#contact" class="service-arrow">Enquire</a>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-num">03</span>
+      <h3 class="service-name">Art Direction</h3>
+      <p class="service-desc">Campaign concepts, photography direction, and creative strategy that elevates your narrative into a visual story.</p>
+      <a href="#contact" class="service-arrow">Enquire</a>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-num">04</span>
+      <h3 class="service-name">Motion & Film</h3>
+      <p class="service-desc">Brand films, animated identities, and motion graphics that bring your brand to life with cinematic intention.</p>
+      <a href="#contact" class="service-arrow">Enquire</a>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-num">05</span>
+      <h3 class="service-name">Print & Editorial</h3>
+      <p class="service-desc">Books, lookbooks, packaging, and printed matter crafted with the same care we bring to every digital touchpoint.</p>
+      <a href="#contact" class="service-arrow">Enquire</a>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-num">06</span>
+      <h3 class="service-name">Strategy & Naming</h3>
+      <p class="service-desc">Naming, positioning, and brand architecture — the invisible foundations that give every visual decision its meaning.</p>
+      <a href="#contact" class="service-arrow">Enquire</a>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="portfolio-header reveal">
+    <div>
+      <p class="section-label">Selected Work</p>
+      <h2 class="section-title">Our <em>Portfolio</em></h2>
+    </div>
+    <a href="#contact" class="btn-ghost">All Projects</a>
+  </div>
+  <div class="portfolio-grid reveal">
+    <div class="port-card">
+      <div class="port-img"><div class="port-img-inner p1"></div></div>
+      <div class="port-overlay">
+        <p class="port-cat">Brand Identity · Luxury</p>
+        <p class="port-name">Maison Aurel</p>
+      </div>
+    </div>
+    <div class="port-card">
+      <div class="port-img"><div class="port-img-inner p2"></div></div>
+      <div class="port-overlay">
+        <p class="port-cat">Digital · Editorial</p>
+        <p class="port-name">Verdant Studio</p>
+      </div>
+    </div>
+    <div class="port-card">
+      <div class="port-img"><div class="port-img-inner p3"></div></div>
+      <div class="port-overlay">
+        <p class="port-cat">Art Direction · Film</p>
+        <p class="port-name">Nocturne Films</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-left reveal">
+    <p class="section-label">Get In Touch</p>
+    <h2 class="section-title">Start a <em>Conversation</em></h2>
+    <p class="contact-intro">
+      Every great project begins with a conversation. Tell us about your vision and we'll tell you how we can bring it to life.
+    </p>
+    <div class="contact-info">
+      <div class="contact-detail">
+        <span class="contact-detail-label">Email</span>
+        <span class="contact-detail-val">hello@[youragency].com</span>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-detail-label">Location</span>
+        <span class="contact-detail-val">Your City, Country</span>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-detail-label">Available for</span>
+        <span class="contact-detail-val">Projects Worldwide</span>
+      </div>
+    </div>
+  </div>
+
+  <!--
+    CONTACT FORM — powered by Formspree (works on GitHub Pages, no backend needed)
+    Steps to activate:
+      1. Go to https://formspree.io and sign up free
+      2. Create a new form → copy your form ID (looks like: xyzabcde)
+      3. Replace YOUR_FORM_ID below with that ID
+      e.g. action="https://formspree.io/f/xyzabcde"
+  -->
+  <form
+    class="contact-form reveal"
+    id="contactForm"
+    action="https://formspree.io/f/YOUR_FORM_ID"
+    method="POST"
+  >
+    <div class="form-row">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input id="name" type="text" name="name" placeholder="Your name" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" placeholder="your@email.com" required />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="service">Service Interested In</label>
+      <select id="service" name="service" required>
+        <option value="" disabled selected>Select a service</option>
+        <option>Brand Identity</option>
+        <option>Digital Design</option>
+        <option>Art Direction</option>
+        <option>Motion &amp; Film</option>
+        <option>Print &amp; Editorial</option>
+        <option>Strategy &amp; Naming</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="message">Project Brief</label>
+      <textarea id="message" name="message" placeholder="Tell us about your project, timeline, and budget…" required></textarea>
+    </div>
+    <div class="form-submit">
+      <button type="submit" class="btn-primary"><span>Send Enquiry →</span></button>
+    </div>
+    <div class="form-success" id="formSuccess">✓ &nbsp; Message sent — we'll be in touch soon.</div>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <label class="footer-logo-area" title="Click to upload your logo">
+    <input type="file" accept="image/*" onchange="previewLogo(event,'footerLogoImg','footerLogoPlaceholder')" />
+    <div class="logo-placeholder" id="footerLogoPlaceholder">
+      <span>⊕ [YOUR LOGO]</span>
+      <span class="upload-hint">· Upload</span>
+    </div>
+    <img class="logo-img-preview" id="footerLogoImg" alt="Logo" />
+  </label>
+  <p class="footer-copy">© 2026 [Agency Name]. All rights reserved.</p>
+  <div class="footer-socials">
+    <a href="#" target="_blank" rel="noopener">Instagram</a>
+    <a href="#" target="_blank" rel="noopener">Behance</a>
+    <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+  /* ── CUSTOM CURSOR ── */
+  const cursorDot  = document.getElementById('cursor');
+  const cursorRing = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursorDot.style.left = mx + 'px';
+    cursorDot.style.top  = my + 'px';
+  });
+  (function loop() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    cursorRing.style.left = rx + 'px';
+    cursorRing.style.top  = ry + 'px';
+    requestAnimationFrame(loop);
+  })();
+  document.querySelectorAll('a, button, label, input, textarea, select').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursorRing.style.transform = 'translate(-50%,-50%) scale(2)';
+      cursorRing.style.opacity   = '0.25';
+      cursorDot.style.opacity    = '0';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursorRing.style.transform = 'translate(-50%,-50%) scale(1)';
+      cursorRing.style.opacity   = '0.5';
+      cursorDot.style.opacity    = '1';
+    });
+  });
+
+  /* ── NAV SCROLL ── */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  /* ── REVEAL ON SCROLL ── */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.style.transitionDelay = (i % 4) * 0.07 + 's';
+    observer.observe(el);
+  });
+
+  /* ── SERVICE CARD STAGGER ── */
+  document.querySelectorAll('.service-card').forEach((card, i) => {
+    card.style.transitionDelay = (i * 0.07) + 's';
+  });
+
+  /* ── LOGO UPLOAD PREVIEW ── */
+  function previewLogo(event, imgId, placeholderId) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = document.getElementById(imgId);
+      const ph  = document.getElementById(placeholderId);
+      img.src = e.target.result;
+      img.style.display = 'block';
+      ph.style.display  = 'none';
+    };
+    reader.readAsDataURL(file);
+  }
+
+  /* ── CONTACT FORM (Formspree AJAX) ── */
+  const form = document.getElementById('contactForm');
+  const successMsg = document.getElementById('formSuccess');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    btn.innerHTML = '<span>Sending…</span>';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        btn.style.display = 'none';
+        successMsg.style.display = 'block';
+        form.reset();
+      } else {
+        btn.innerHTML = '<span>Error — try again</span>';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.innerHTML = '<span>Error — try again</span>';
+      btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
     

@@ -603,6 +603,175 @@
     footer { flex-direction: column; gap: 1.5rem; text-align: center; }
     .divider { flex-wrap: wrap; gap: 1rem; justify-content: center; }
   }
+ /* CAROUSEL STYLES */
+#portfolio { padding-top: 6rem; padding-bottom: 6rem; }
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+
+.carousel-inner {
+  display: flex;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--black-3);
+  position: relative;
+  aspect-ratio: 4 / 3;
+}
+
+.carousel-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-shrink: 0;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-images {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
+  background: var(--black-2);
+}
+
+.carousel-main {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-logo {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 1.2rem;
+  height: 40px;
+  max-width: 120px;
+  object-fit: contain;
+  background: rgba(0,0,0,0.5);
+  padding: 0.5rem 0.8rem;
+  border-radius: 2px;
+}
+
+.carousel-info {
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.carousel-cat {
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.carousel-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--white);
+  margin: 0;
+}
+
+/* NAVIGATION BUTTONS */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  background: rgba(201, 161, 46, 0.15);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background: rgba(201, 161, 46, 0.3);
+}
+
+.carousel-prev {
+  left: -60px;
+}
+
+.carousel-next {
+  right: -60px;
+}
+
+/* DOTS */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(201, 161, 46, 0.2);
+  border: 1px solid var(--gold);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: var(--gold);
+  transform: scale(1.3);
+}
+
+@media (max-width: 900px) {
+  .carousel-wrapper { max-width: 100%; padding: 0 2rem; }
+  .carousel-prev { left: 0; }
+  .carousel-next { right: 0; }
+  .carousel-btn { width: 36px; height: 36px; }
+ }
+ /* ── CAROUSEL ── */
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-card');
+const totalSlides = slides.length;
+
+function updateCarousel() {
+  const offset = -currentSlide * 100;
+  document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
+  
+  document.querySelectorAll('.dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === currentSlide);
+  });
+}
+
+function carouselNext() {
+  currentSlide = (currentSlide + 1) % totalSlides;
+  updateCarousel();
+}
+
+function carouselPrev() {
+  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+  updateCarousel();
+}
+
+function carouselGo(index) {
+  currentSlide = index;
+  updateCarousel();
+}
+
+setInterval(carouselNext, 6000);
 </style>
 </head>
 <body>

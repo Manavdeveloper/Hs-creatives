@@ -690,77 +690,93 @@
   </div>
 </section>
 
-        <!-- PORTFOLIO -->
+<!-- PORTFOLIO CAROUSEL -->
 <section id="portfolio">
   <div class="portfolio-header reveal">
     <div>
       <p class="section-label">Selected Work</p>
       <h2 class="section-title">Our <em>Portfolio</em></h2>
     </div>
-    <a href="#contact" class="btn-ghost">All Projects</a>
   </div>
-  <div class="portfolio-grid reveal">
 
-    <!-- Client 1 — Poster Design -->
-    <div class="port-card">
-      <div class="port-img">
-        <img src="Portfolio4/Posts/PHOTO-2026-04-09-23-30-33.jpg" alt="Client 1 Work" />
+  <!-- Carousel Container -->
+  <div class="carousel-wrapper reveal">
+    <div class="carousel-inner">
+
+      <!-- Client 1 -->
+      <div class="carousel-card">
+        <div class="carousel-images">
+          <img src="Portfolio4/Posts/PHOTO-2026-04-09-23-30-33.jpg" alt="Client 1 Work" class="carousel-main" />
+          <img src="Portfolio4/logo/PHOTO-2026-04-08-17-40-25.jpg" alt="Client 1 Logo" class="carousel-logo" />
+        </div>
+        <div class="carousel-info">
+          <p class="carousel-cat">Poster Design</p>
+          <h3 class="carousel-name">[Client 1 Name]</h3>
+        </div>
       </div>
-      <div class="port-overlay">
-        <img src="Portfolio4/logo/PHOTO-2026-04-08-17-40-25.jpg" alt="Client 1 Logo" class="port-logo" />
-        <p class="port-cat">Poster Design</p>
-        <p class="port-name">[Client 1 Name]</p>
+
+      <!-- Client 2 -->
+      <div class="carousel-card">
+        <div class="carousel-images">
+          <img src="Portfolio4/Menu and catalogues/PHOTO-2026-04-09-23-30-34.jpg" alt="Client 2 Work" class="carousel-main" />
+          <img src="Portfolio4/logo/PHOTO-2026-04-08-17-41-24.jpg" alt="Client 2 Logo" class="carousel-logo" />
+        </div>
+        <div class="carousel-info">
+          <p class="carousel-cat">Menu & Poster Design</p>
+          <h3 class="carousel-name">[Client 2 Name]</h3>
+        </div>
       </div>
+
+      <!-- Client 3 -->
+      <div class="carousel-card">
+        <div class="carousel-images">
+          <img src="Portfolio4/logo/PHOTO-2026-04-08-17-41-25.jpg" alt="Client 3 Work" class="carousel-main" />
+          <img src="Portfolio4/logo/PHOTO-2026-04-08-17-41-25.jpg" alt="Client 3 Logo" class="carousel-logo" />
+        </div>
+        <div class="carousel-info">
+          <p class="carousel-cat">Logo Design</p>
+          <h3 class="carousel-name">[Client 3 Name]</h3>
+        </div>
+      </div>
+
+      <!-- Client 4 -->
+      <div class="carousel-card">
+        <div class="carousel-images">
+          <img src="Portfolio4/Posts/PHOTO-2026-04-09-23-30-34 (1).jpg" alt="Client 4 Work" class="carousel-main" />
+          <img src="Portfolio4/logo/PHOTO-2026-04-08-17-42-32.jpg" alt="Client 4 Logo" class="carousel-logo" />
+        </div>
+        <div class="carousel-info">
+          <p class="carousel-cat">Catalogue & Social Media</p>
+          <h3 class="carousel-name">[Client 4 Name]</h3>
+        </div>
+      </div>
+
+      <!-- Client 5 -->
+      <div class="carousel-card">
+        <div class="carousel-images">
+          <img src="Portfolio4/Posts/PHOTO-2026-04-09-23-34-06 (1).jpg" alt="Client 5 Work" class="carousel-main" />
+          <img src="Portfolio4/logo/PHOTO-2026-04-09-23-35-53.jpg" alt="Client 5 Logo" class="carousel-logo" />
+        </div>
+        <div class="carousel-info">
+          <p class="carousel-cat">Logo & Social Media Design</p>
+          <h3 class="carousel-name">[Client 5 Name]</h3>
+        </div>
+      </div>
+
     </div>
 
-    <!-- Client 2 — Menu & Poster -->
-    <div class="port-card">
-      <div class="port-img">
-        <img src="Portfolio4/Menu and catalogues/PHOTO-2026-04-09-23-30-34.jpg" alt="Client 2 Work" />
-      </div>
-      <div class="port-overlay">
-        <img src="Portfolio4/logo/PHOTO-2026-04-08-17-41-24.jpg" alt="Client 2 Logo" class="port-logo" />
-        <p class="port-cat">Menu & Poster Design</p>
-        <p class="port-name">[Client 2 Name]</p>
-      </div>
-    </div>
+    <!-- Navigation -->
+    <button class="carousel-btn carousel-prev" onclick="carouselPrev()">←</button>
+    <button class="carousel-btn carousel-next" onclick="carouselNext()">→</button>
 
-    <!-- Client 3 — Logo Design -->
-    <div class="port-card">
-      <div class="port-img">
-        <img src="Portfolio4/logo/PHOTO-2026-04-08-17-41-25.jpg" alt="Client 3 Work" />
-      </div>
-      <div class="port-overlay">
-        <img src="Portfolio4/logo/PHOTO-2026-04-08-17-41-25.jpg" alt="Client 3 Logo" class="port-logo" />
-        <p class="port-cat">Logo Design</p>
-        <p class="port-name">[Client 3 Name]</p>
-      </div>
+    <!-- Dots -->
+    <div class="carousel-dots">
+      <span class="dot active" onclick="carouselGo(0)"></span>
+      <span class="dot" onclick="carouselGo(1)"></span>
+      <span class="dot" onclick="carouselGo(2)"></span>
+      <span class="dot" onclick="carouselGo(3)"></span>
+      <span class="dot" onclick="carouselGo(4)"></span>
     </div>
-
-    <!-- Client 4 — Catalogue & Social Media -->
-    <div class="port-card">
-      <div class="port-img">
-        <img src="Portfolio4/Posts/PHOTO-2026-04-09-23-30-34 (1).jpg" alt="Client 4 Work" />
-      </div>
-      <div class="port-overlay">
-        <img src="Portfolio4/logo/PHOTO-2026-04-08-17-42-32.jpg" alt="Client 4 Logo" class="port-logo" />
-        <p class="port-cat">Catalogue & Social Media</p>
-        <p class="port-name">[Client 4 Name]</p>
-      </div>
-    </div>
-
-    <!-- Client 5 — Logo & Social Media -->
-    <div class="port-card">
-      <div class="port-img">
-        <img src="Portfolio4/Posts/PHOTO-2026-04-09-23-34-06 (1).jpg" alt="Client 5 Work" />
-      </div>
-      <div class="port-overlay">
-        <img src="Portfolio4/logo/PHOTO-2026-04-09-23-35-53.jpg" alt="Client 5 Logo" class="port-logo" />
-        <p class="port-cat">Logo & Social Media Design</p>
-        <p class="port-name">[Client 5 Name]</p>
-      </div>
-    </div>
-
   </div>
 </section>
 <!-- CONTACT -->

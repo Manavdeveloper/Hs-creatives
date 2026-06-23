@@ -406,7 +406,7 @@
   .service-arrow:hover::after { transform: translateX(5px); }
 
   /* PORTFOLIO */
-  #portfolio { background: var(--black); }
+  #portfolio { background: var(--black); padding-top: 6rem; padding-bottom: 6rem; }
   .portfolio-header {
     display: flex;
     justify-content: space-between;
@@ -464,6 +464,137 @@
     font-size: 1.5rem; font-weight: 300; color: var(--white);
   }
 
+  /* CAROUSEL STYLES */
+  .carousel-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: 4rem;
+  }
+
+  .carousel-inner {
+    display: flex;
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--black-3);
+    position: relative;
+    aspect-ratio: 4 / 3;
+  }
+
+  .carousel-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-shrink: 0;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .carousel-images {
+    position: relative;
+    width: 100%;
+    flex: 1;
+    overflow: hidden;
+    background: var(--black-2);
+  }
+
+  .carousel-main {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .carousel-logo {
+    position: absolute;
+    bottom: 1.2rem;
+    left: 1.2rem;
+    height: 40px;
+    max-width: 120px;
+    object-fit: contain;
+    background: rgba(0,0,0,0.5);
+    padding: 0.5rem 0.8rem;
+    border-radius: 2px;
+  }
+
+  .carousel-info {
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .carousel-cat {
+    font-size: 0.58rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .carousel-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--white);
+    margin: 0;
+  }
+
+  /* NAVIGATION BUTTONS */
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    background: rgba(201, 161, 46, 0.15);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.3s ease;
+  }
+
+  .carousel-btn:hover {
+    background: rgba(201, 161, 46, 0.3);
+  }
+
+  .carousel-prev {
+    left: -60px;
+  }
+
+  .carousel-next {
+    right: -60px;
+  }
+
+  /* DOTS */
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 2rem;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(201, 161, 46, 0.2);
+    border: 1px solid var(--gold);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .dot.active {
+    background: var(--gold);
+    transform: scale(1.3);
+  }
+
   /* CONTACT */
   #contact {
     background: var(--black-2);
@@ -506,7 +637,7 @@
     background: transparent; border: none; outline: none;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.05rem; color: var(--white); resize: none;
-    cursor: none;
+    cursor: auto;
     -webkit-appearance: none;
   }
   .form-group select option { background: #111; }
@@ -602,176 +733,11 @@
     .form-row { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 1.5rem; text-align: center; }
     .divider { flex-wrap: wrap; gap: 1rem; justify-content: center; }
+    .carousel-wrapper { max-width: 100%; padding: 0 2rem; }
+    .carousel-prev { left: 0; }
+    .carousel-next { right: 0; }
+    .carousel-btn { width: 36px; height: 36px; }
   }
- /* CAROUSEL STYLES */
-#portfolio { padding-top: 6rem; padding-bottom: 6rem; }
-
-.carousel-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  margin-top: 4rem;
-}
-
-.carousel-inner {
-  display: flex;
-  overflow: hidden;
-  border-radius: 4px;
-  background: var(--black-3);
-  position: relative;
-  aspect-ratio: 4 / 3;
-}
-
-.carousel-card {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  flex-shrink: 0;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.carousel-images {
-  position: relative;
-  width: 100%;
-  flex: 1;
-  overflow: hidden;
-  background: var(--black-2);
-}
-
-.carousel-main {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.carousel-logo {
-  position: absolute;
-  bottom: 1.2rem;
-  left: 1.2rem;
-  height: 40px;
-  max-width: 120px;
-  object-fit: contain;
-  background: rgba(0,0,0,0.5);
-  padding: 0.5rem 0.8rem;
-  border-radius: 2px;
-}
-
-.carousel-info {
-  padding: 1.5rem;
-  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.carousel-cat {
-  font-size: 0.58rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.4rem;
-}
-
-.carousel-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.6rem;
-  font-weight: 300;
-  color: var(--white);
-  margin: 0;
-}
-
-/* NAVIGATION BUTTONS */
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  background: rgba(201, 161, 46, 0.15);
-  border: 1px solid var(--gold);
-  color: var(--gold);
-  font-size: 1.2rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  transition: all 0.3s ease;
-}
-
-.carousel-btn:hover {
-  background: rgba(201, 161, 46, 0.3);
-}
-
-.carousel-prev {
-  left: -60px;
-}
-
-.carousel-next {
-  right: -60px;
-}
-
-/* DOTS */
-.carousel-dots {
-  display: flex;
-  justify-content: center;
-  gap: 0.8rem;
-  margin-top: 2rem;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(201, 161, 46, 0.2);
-  border: 1px solid var(--gold);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.dot.active {
-  background: var(--gold);
-  transform: scale(1.3);
-}
-
-@media (max-width: 900px) {
-  .carousel-wrapper { max-width: 100%; padding: 0 2rem; }
-  .carousel-prev { left: 0; }
-  .carousel-next { right: 0; }
-  .carousel-btn { width: 36px; height: 36px; }
- }
- /* ── CAROUSEL ── */
-let currentSlide = 0;
-const slides = document.querySelectorAll('.carousel-card');
-const totalSlides = slides.length;
-
-function updateCarousel() {
-  const offset = -currentSlide * 100;
-  document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
-  
-  document.querySelectorAll('.dot').forEach((dot, i) => {
-    dot.classList.toggle('active', i === currentSlide);
-  });
-}
-
-function carouselNext() {
-  currentSlide = (currentSlide + 1) % totalSlides;
-  updateCarousel();
-}
-
-function carouselPrev() {
-  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-  updateCarousel();
-}
-
-function carouselGo(index) {
-  currentSlide = index;
-  updateCarousel();
-}
-
-setInterval(carouselNext, 6000);
 </style>
 </head>
 <body>
@@ -948,6 +914,7 @@ setInterval(carouselNext, 6000);
     </div>
   </div>
 </section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-left reveal">
@@ -963,7 +930,7 @@ setInterval(carouselNext, 6000);
       </div>
       <div class="contact-detail">
         <span class="contact-detail-label">Location</span>
-        <span class="contact-detail-val">Kota,Rajasthan,India</span>
+        <span class="contact-detail-val">Kota, Rajasthan, India</span>
       </div>
       <div class="contact-detail">
         <span class="contact-detail-label">Available for</span>
@@ -972,7 +939,6 @@ setInterval(carouselNext, 6000);
     </div>
   </div>
 
- 
   <form
     class="contact-form reveal"
     id="contactForm"
@@ -1000,124 +966,103 @@ setInterval(carouselNext, 6000);
       </select>
     </div>
     <div class="form-group">
-      <label for="message">Project Brief</label>
-      <textarea id="message" name="message" placeholder="Tell us about your project, timeline, and budget…" required></textarea>
+      <label for="message">Project Details</label>
+      <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
     </div>
-    <div class="form-submit">
-      <button type="submit" class="btn-primary"><span>Send Enquiry →</span></button>
-    </div>
-    <div class="form-success" id="formSuccess">✓ &nbsp; Message sent — we'll be in touch soon.</div>
+    <button type="submit" class="btn-primary form-submit"><span>Send Message</span></button>
+    <div class="form-success" id="formSuccess">Message sent successfully!</div>
   </form>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <img src="https://Manavdeveloper.github.io/Hs-creatives/logo.png" alt="Agency Logo" style="height:100px; max-width:140px; object-fit:contain;" />
-  <p class="footer-copy">© 2026 HS creatives. All rights reserved.</p>
+  <span class="footer-copy">&copy; 2024 HS Creatives. All rights reserved.</span>
   <div class="footer-socials">
-    <a href="#" target="_blank" rel="noopener">Instagram</a>
-    <a href="#" target="_blank" rel="noopener">Behance</a>
-    <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="#" target="_blank">Instagram</a>
+    <a href="#" target="_blank">Behance</a>
+    <a href="#" target="_blank">Dribbble</a>
   </div>
 </footer>
 
+<!-- SCRIPTS -->
 <script>
-  /* ── CUSTOM CURSOR ── */
-  const cursorDot  = document.getElementById('cursor');
-  const cursorRing = document.getElementById('cursorRing');
-  let mx = 0, my = 0, rx = 0, ry = 0;
+  // ── CAROUSEL ──
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.carousel-card');
+  const totalSlides = slides.length;
 
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cursorDot.style.left = mx + 'px';
-    cursorDot.style.top  = my + 'px';
-  });
-  (function loop() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    cursorRing.style.left = rx + 'px';
-    cursorRing.style.top  = ry + 'px';
-    requestAnimationFrame(loop);
-  })();
-  document.querySelectorAll('a, button, label, input, textarea, select').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursorRing.style.transform = 'translate(-50%,-50%) scale(2)';
-      cursorRing.style.opacity   = '0.25';
-      cursorDot.style.opacity    = '0';
+  function updateCarousel() {
+    const offset = -currentSlide * 100;
+    document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
+    
+    document.querySelectorAll('.dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentSlide);
     });
-    el.addEventListener('mouseleave', () => {
-      cursorRing.style.transform = 'translate(-50%,-50%) scale(1)';
-      cursorRing.style.opacity   = '0.5';
-      cursorDot.style.opacity    = '1';
-    });
-  });
-
-  /* ── NAV SCROLL ── */
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  });
-
-  /* ── REVEAL ON SCROLL ── */
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach((el, i) => {
-    el.style.transitionDelay = (i % 4) * 0.07 + 's';
-    observer.observe(el);
-  });
-
-  /* ── SERVICE CARD STAGGER ── */
-  document.querySelectorAll('.service-card').forEach((card, i) => {
-    card.style.transitionDelay = (i * 0.07) + 's';
-  });
-
-  /* ── LOGO UPLOAD PREVIEW ── */
-  function previewLogo(event, imgId, placeholderId) {
-    const file = event.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = e => {
-      const img = document.getElementById(imgId);
-      const ph  = document.getElementById(placeholderId);
-      img.src = e.target.result;
-      img.style.display = 'block';
-      ph.style.display  = 'none';
-    };
-    reader.readAsDataURL(file);
   }
 
-  /* ── CONTACT FORM (Formspree AJAX) ── */
-  const form = document.getElementById('contactForm');
-  const successMsg = document.getElementById('formSuccess');
+  function carouselNext() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarousel();
+  }
 
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
-    btn.innerHTML = '<span>Sending…</span>';
-    btn.disabled = true;
+  function carouselPrev() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+  }
 
-    try {
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) {
-        btn.style.display = 'none';
-        successMsg.style.display = 'block';
-        form.reset();
-      } else {
-        btn.innerHTML = '<span>Error — try again</span>';
-        btn.disabled = false;
+  function carouselGo(index) {
+    currentSlide = index;
+    updateCarousel();
+  }
+
+  setInterval(carouselNext, 6000);
+
+  // ── REVEAL ON SCROLL ──
+  const revealElements = document.querySelectorAll('.reveal');
+  
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
       }
-    } catch {
-      btn.innerHTML = '<span>Error — try again</span>';
-      btn.disabled = false;
+    });
+  }, { threshold: 0.1 });
+
+  revealElements.forEach(el => revealObserver.observe(el));
+
+  // ── NAV SCROLL ──
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
     }
   });
+
+  // ── CUSTOM CURSOR ──
+  const cursor = document.getElementById('cursor');
+  const cursorRing = document.getElementById('cursorRing');
+
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    
+    cursorRing.style.left = e.clientX + 'px';
+    cursorRing.style.top = e.clientY + 'px';
+  });
+
+  // Hide custom cursor when leaving window
+  document.addEventListener('mouseout', () => {
+    cursor.style.opacity = '0';
+    cursorRing.style.opacity = '0';
+  });
+
+  document.addEventListener('mouseover', () => {
+    cursor.style.opacity = '1';
+    cursorRing.style.opacity = '0.5';
+  });
 </script>
+
 </body>
 </html>

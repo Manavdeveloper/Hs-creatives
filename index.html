@@ -739,6 +739,34 @@
     .carousel-next { right: 0; }
     .carousel-btn { width: 36px; height: 36px; }
   }
+ .portfolio-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 3rem 0;
+}
+
+.tab-btn {
+  padding: 0.7rem 1.8rem;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--muted);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.tab-btn.active {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.tab-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
 </style>
 </head>
 <body>
@@ -1079,6 +1107,56 @@
       formSuccess.style.display = 'block';
     }, 500);
   });
+ let currentTab = 0;
+let currentSlide = 0;
+
+function switchTab(tab) {
+  currentTab = tab;
+  currentSlide = 0;
+  
+  document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+    btn.classList.toggle('active', i === tab);
+  });
+  
+  document.querySelectorAll('.carousel-card').forEach(card => {
+    card.style.display = card.dataset.tab == tab ? 'flex' : 'none';
+  });
+  
+  updateDots();
+  updateCarousel();
+}
+
+function updateCarousel() {
+  const offset = -currentSlide * 100;
+  document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
+}
+
+function carouselNext() {
+  const cards = document.querySelectorAll(`[data-tab="${currentTab}"]`);
+  currentSlide = (currentSlide + 1) % cards.length;
+  updateCarousel();
+}
+
+function carouselPrev() {
+  const cards = document.querySelectorAll(`[data-tab="${currentTab}"]`);
+  currentSlide = (currentSlide - 1 + cards.length) % cards.length;
+  updateCarousel();
+}
+
+function carouselGo(index) {
+  currentSlide = index;
+  updateCarousel();
+}
+
+function updateDots() {
+  const cards = document.querySelectorAll(`[data-tab="${currentTab}"]`);
+  const dotsHTML = Array(cards.length).fill().map((_, i) => 
+    `<span class="dot ${i === 0 ? 'active' : ''}" onclick="carouselGo(${i})"></span>`
+  ).join('');
+  document.getElementById('dots-0').innerHTML = dotsHTML;
+}
+
+setInterval(() => carouselNext(), 6000);
 </script>
 </body>
 </html>

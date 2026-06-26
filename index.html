@@ -624,7 +624,8 @@
   .form-group {
     display: flex; flex-direction: column;
     padding: 1.4rem 0;
-    border-bottom: 1px solid var(--border);
+ 
+   border-bottom: 1px solid var(--border);
     position: relative;
   }
   .form-group label {
@@ -839,57 +840,83 @@
   <button class="tab-btn" onclick="switchTab(2)">Posts</button>
 </div>
 
-  <!-- Carousel Container -->
-  <div class="carousel-wrapper reveal">
-    <div class="carousel-inner">
+ <!-- PORTFOLIO TABS -->
+<div class="portfolio-tabs reveal">
+  <button class="tab-btn active" onclick="switchTab(0)">Logos</button>
+  <button class="tab-btn" onclick="switchTab(1)">Menus</button>
+  <button class="tab-btn" onclick="switchTab(2)">Posts</button>
+</div>
 
-      <!-- Client 1 -->
-      <div class="carousel-card">
-        <div class="carousel-images">
-          <img src="Portfolio4/Posts/PHOTO-2026-04-09-23-30-33.jpg" alt="Client 1 Work" class="carousel-main" />
-          <img src="Portfolio4/logo/PHOTO-2026-04-08-17-40-25.jpg" alt="Client 1 Logo" class="carousel-logo" />
-        </div>
-        <div class="carousel-info">
-          <p class="carousel-cat">Menu and catalogue</p>
-          <h3 class="carousel-name">[Menu and catalogue]</h3>
-        </div>
+<!-- Carousel Container -->
+<div class="carousel-wrapper reveal">
+  <div class="carousel-inner">
+
+    <!-- LOGOS (5 cards) -->
+    <div class="carousel-card" data-tab="0">
+      <div class="carousel-images">
+        <img src="https://Manavdeveloper.github.io/Hs-creatives/Portfolio4/logo/PHOTO-2026-04-08-17-40-25.jpg" class="carousel-main" />
       </div>
-
-      <!-- Client 2 -->
-      <div class="carousel-card">
-        <div class="carousel-images">
-          <img src="Portfolio4/Menu and catalogues/PHOTO-2026-04-09-23-30-34.jpg" alt="Client 2 Work" class="carousel-main" />
-          <img src="Portfolio4/logo/PHOTO-2026-04-08-17-41-24.jpg" alt="Client 2 Logo" class="carousel-logo" />
-          <img src="Portfolio4/logo/PHOTO-2026-04-08-17-41-24.jpg" alt="Client 2 Logo" class="carousel-logo" />
-          <img src="Portfolio4/logo/PHOTO-2026-04-08-17-41-24.jpg" alt="Client 2 Logo" class="carousel-logo" />
-          <img src="Portfolio4/logo/PHOTO-2026-04-08-17-41-24.jpg" alt="Client 2 Logo" class="carousel-logo" />
-         
-        </div>
-        <div class="carousel-info">
-          <p class="carousel-cat">Logos</p>
-          <h3 class="carousel-name">[Logos]</h3>
-        </div>
-      </div>
-
-      <!-- Client 3 -->
-      <div class="carousel-card">
-        <div class="carousel-images">
-          <img src="Portfolio4/logo/PHOTO-2026-04-08-17-41-25.jpg" alt="Client 3 Work" class="carousel-main" />
-          <img src="Portfolio4/logo/PHOTO-2026-04-08-17-41-25.jpg" alt="Client 3 Logo" class="carousel-logo" />
-          <img src="Portfolio4/logo/PHOTO-2026-04-08-17-41-25.jpg" alt="Client 3 Logo" class="carousel-logo" />
-          <img src="Portfolio4/logo/PHOTO-2026-04-08-17-41-25.jpg" alt="Client 3 Logo" class="carousel-logo" />
-          <img src="Portfolio4/logo/PHOTO-2026-04-08-17-41-25.jpg" alt="Client 3 Logo" class="carousel-logo" />
-          <img src="Portfolio4/logo/PHOTO-2026-04-08-17-41-25.jpg" alt="Client 3 Logo" class="carousel-logo" />
-        </div>
-        <div class="carousel-info">
-          <p class="carousel-cat">Social Media Posts</p>
-          <h3 class="carousel-name">[Social Media Posts]</h3>
-        </div>
-      </div>
-
-   
     </div>
 
+    <div class="carousel-card" data-tab="0">
+      <div class="carousel-images">
+        <img src="https://Manavdeveloper.github.io/Hs-creatives/Portfolio4/logo/PHOTO-2026-04-08-17-41-24.jpg" class="carousel-main" />
+      </div>
+    </div>
+
+    <div class="carousel-card" data-tab="0">
+      <div class="carousel-images">
+        <img src="https://Manavdeveloper.github.io/Hs-creatives/Portfolio4/logo/PHOTO-2026-04-08-17-41-25.jpg" class="carousel-main" />
+      </div>
+    </div>
+
+    <div class="carousel-card" data-tab="0">
+      <div class="carousel-images">
+        <img src="https://Manavdeveloper.github.io/Hs-creatives/Portfolio4/logo/PHOTO-2026-04-08-17-42-32.jpg" class="carousel-main" />
+      </div>
+    </div>
+
+    <div class="carousel-card" data-tab="0">
+      <div class="carousel-images">
+        <img src="https://Manavdeveloper.github.io/Hs-creatives/Portfolio4/logo/PHOTO-2026-04-09-23-35-53.jpg" class="carousel-main" />
+      </div>
+    </div>
+
+    <!-- MENUS (2 cards) -->
+    <div class="carousel-card" data-tab="1" style="display:none;">
+      <div class="carousel-images">
+        <img src="https://Manavdeveloper.github.io/Hs-creatives/Portfolio4/Menu and catalogues/PHOTO-2026-04-09-23-30-34.jpg" class="carousel-main" />
+      </div>
+    </div>
+
+    <div class="carousel-card" data-tab="1" style="display:none;">
+      <div class="carousel-images">
+        <img src="https://Manavdeveloper.github.io/Hs-creatives/Portfolio4/Menu and catalogues/PHOTO-2026-04-09-23-34-06.jpg" class="carousel-main" />
+      </div>
+    </div>
+
+    <!-- POSTS (6 cards) -->
+    <div class="carousel-card" data-tab="2" style="display:none;">
+      <div class="carousel-images">
+        <img src="https://Manavdeveloper.github.io/Hs-creatives/Portfolio4/Posts/PHOTO-2026-04-09-23-30-33.jpg" class="carousel-main" />
+      </div>
+    </div>
+
+    <div class="carousel-card" data-tab="2" style="display:none;">
+      <div class="carousel-images">
+        <img src="https://Manavdeveloper.github.io/Hs-creatives/Portfolio4/Posts/PHOTO-2026-04-09-23-30-34 (1).jpg" class="carousel-main" />
+      </div>
+    </div>
+
+    <div class="carousel-card" data-tab="2" style="display:none;">
+      <div class="carousel-images">
+        <img src="https://Manavdeveloper.github.io/Hs-creatives/Portfolio4/Posts/PHOTO-2026-04-09-23-34-06 (1).jpg" class="carousel-main" />
+      </div>
+    </div>
+
+    <div class="carousel-card" data-tab="2" style="display:none;">
+      <div class="carousel-images">
+        <img src="https://Manavdeveloper.github.io/Hs-creatives/Portfolio4/Posts/PHOTO-
     <!-- Navigation -->
     <button class="carousel-btn carousel-prev" onclick="carouselPrev()">←</button>
     <button class="carousel-btn carousel-next" onclick="carouselNext()">→</button>

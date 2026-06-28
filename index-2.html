@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>HS Creatives — Design Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --black: #000000;
+    --black-2: #0a0a0a;
+    --black-3: #111111;
+    --gold: #c9a12e;
+    --gold-light: #e0bc4a;
+    --white: #ffffff;
+    --off-white: #e8e4dc;
+    --muted: #666660;
+    --border: rgba(201, 161, 46, 0.18);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--black);
+    color: var(--off-white);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15rem 5% 5rem;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 2rem;
+  }
+
+  .hero-title em { font-style: italic; color: var(--gold); }
+
+  .hero-sub {
+    font-size: 0.75rem;
+    line-height: 2;
+    color: var(--muted);
+    max-width: 450px;
+    margin: 0 auto 3rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 1rem 2.5rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--gold);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--black);
+  }
+
+  .btn-primary:hover { background: var(--gold-light); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--gold);
+  }
+
+  .btn-ghost:hover { background: rgba(201, 161, 46, 0.1); }
+
+  /* SECTION */
+  section { padding: 6rem 8%; }
+
+  .section-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 3rem;
+  }
+
+  /* SERVICES */
+  #services { background: var(--black-2); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--border);
+  }
+
+  .service-card {
+    padding: 2.5rem;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .service-card:nth-child(3n) { border-right: none; }
+  .service-card:nth-child(n+4) { border-bottom: none; }
+
+  .service-num {
+    font-size: 2.5rem;
+    color: rgba(201, 161, 46, 0.1);
+    margin-bottom: 1rem;
+  }
+
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: var(--white);
+    margin-bottom: 0.8rem;
+  }
+
+  .service-desc {
+    font-size: 0.7rem;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+
+  /* PORTFOLIO */
+  #portfolio { background: var(--black); }
+
+  .portfolio-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    padding: 0.6rem 1.5rem;
+    background: transparent;
+    border: 1px solid var(--muted);
+    color: var(--muted);
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .tab-btn.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--black);
+  }
+
+  .tab-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+  .carousel-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .carousel-inner {
+    display: flex;
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--black-3);
+    aspect-ratio: 4 / 3;
+    position: relative;
+  }
+
+  .carousel-card {
+    width: 100%;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .carousel-images {
+    width: 100%;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .carousel-main {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    background: rgba(201, 161, 46, 0.15);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+    z-index: 10;
+  }
+
+  .carousel-btn:hover { background: rgba(201, 161, 46, 0.3); }
+  .carousel-prev { left: -60px; }
+  .carousel-next { right: -60px; }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 2rem;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(201, 161, 46, 0.2);
+    border: 1px solid var(--gold);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .dot.active { background: var(--gold); transform: scale(1.3); }
+
+  /* CONTACT */
+  #contact { background: var(--black-2); }
+
+  .contact-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    color: var(--white);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+  }
+
+  .form-group textarea { min-height: 100px; resize: none; }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-bottom-color: var(--gold);
+    outline: none;
+  }
+
+  .form-submit {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .form-success {
+    display: none;
+    padding: 1rem;
+    background: rgba(201, 161, 46, 0.1);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    padding: 2rem 8%;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy { font-size: 0.6rem; color: rgba(255,255,255,0.2); }
+
+  .footer-socials {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-socials a {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-socials a:hover { color: var(--gold); }
+
+  @media (max-width: 900px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { border-right: none; }
+    .carousel-prev { left: 0; }
+    .carousel-next { right: 0; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">HS Creatives</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <p class="hero-eyebrow">Creative Design Studio</p>
+  <h1 class="hero-title">Designs for a Better <em>Tomorrow</em></h1>
+  <p class="hero-sub">We craft identities, experiences, and visuals that endure — built for brands that demand distinction.</p>
+  <div class="hero-cta">
+    <a href="#contact" class="btn btn-primary">Begin a Project</a>
+    <a href="#portfolio" class="btn btn-ghost">View Our Work</a>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <p class="section-label">What We Do</p>
+  <h2 class="section-title">Our Craft</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <h3 class="service-name">Logo Design</h3>
+      <p class="service-desc">Creating distinctive logos that give your brand a recognizable identity.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <h3 class="service-name">Post Design</h3>
+      <p class="service-desc">Designing visually engaging posts that capture attention and communicate clearly.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <h3 class="service-name">Menu & Catalogue</h3>
+      <p class="service-desc">Professional menus and catalogues designed for impact and clarity.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <p class="section-label">Selected Work</p>
+  <h2 class="section-title">Our Portfolio</h2>
+
+  <!-- TABS -->
+  <div class="portfolio-tabs">
+    <button class="tab-btn active" onclick="switchTab(0)">Logos</button>
+    <button class="tab-btn" onclick="switchTab(1)">Menus</button>
+    <button class="tab-btn" onclick="switchTab(2)">Posts</button>
+  </div>
+
+  <!-- CAROUSEL -->
+  <div class="carousel-wrapper">
+    <div class="carousel-inner">
+      <!-- LOGOS -->
+      <div class="carousel-card" data-tab="0">
+        <div class="carousel-images">
+          <img src="https://Manavdeveloper.github.io/Hs-creatives/Portfolio4/logo/PHOTO-2026-04-08-17-40-25.jpg" class="carousel-main" />
+        </div>
+      </div>
+      <div class="carousel-card" data-tab="0">
+        <div class="carousel-images">
+          <img src="https://Manavdeveloper.github.io/Hs-creatives/Portfolio4/logo/PHOTO-2026-04-08-17-41-24.jpg" class="carousel-main" />
+        </div>
+      </div>
+      <div class="carousel-card" data-tab="0">
+        <div class="carousel-images">
+          <img src="https://Manavdeveloper.github.io/Hs-creatives/Portfolio4/logo/PHOTO-2026-04-08-17-41-25.jpg" class="carousel-main" />
+        </div>
+      </div>
+      <div class="carousel-card" data-tab="0">
+        <div class="carousel-images">
+          <img src="https://Manavdeveloper.github.io/Hs-creatives/Portfolio4/logo/PHOTO-2026-04-08-17-42-32.jpg" class="carousel-main" />
+        </div>
+      </div>
+      <div class="carousel-card" data-tab="0">
+        <div class="carousel-images">
+          <img src="https://Manavdeveloper.github.io/Hs-creatives/Portfolio4/logo/PHOTO-2026-04-09-23-35-53.jpg" class="carousel-main" />
+        </div>
+      </div>
+
+      <!-- MENUS -->
+      <div class="carousel-card" data-tab="1" style="display:none;">
+        <div class="carousel-images">
+          <img src="https://Manavdeveloper.github.io/Hs-creatives/Portfolio4/Menu and catalogues/PHOTO-2026-04-09-23-30-34.jpg" class="carousel-main" />
+        </div>
+      </div>
+      <div class="carousel-card" data-tab="1" style="display:none;">
+        <div class="carousel-images">
+          <img src="https://Manavdeveloper.github.io/Hs-creatives/Portfolio4/Menu and catalogues/PHOTO-2026-04-09-23-34-06.jpg" class="carousel-main" />
+        </div>
+      </div>
+
+      <!-- POSTS -->
+      <div class="carousel-card" data-tab="2" style="display:none;">
+        <div class="carousel-images">
+          <img src="https://Manavdeveloper.github.io/Hs-creatives/Portfolio4/Posts/PHOTO-2026-04-09-23-30-33.jpg" class="carousel-main" />
+        </div>
+      </div>
+      <div class="carousel-card" data-tab="2" style="display:none;">
+        <div class="carousel-images">
+          <img src="https://Manavdeveloper.github.io/Hs-creatives/Portfolio4/Posts/PHOTO-2026-04-09-23-30-34 (1).jpg" class="carousel-main" />
+        </div>
+      </div>
+      <div class="carousel-card" data-tab="2" style="display:none;">
+        <div class="carousel-images">
+          <img src="https://Manavdeveloper.github.io/Hs-creatives/Portfolio4/Posts/PHOTO-2026-04-09-23-34-06 (1).jpg" class="carousel-main" />
+        </div>
+      </div>
+      <div class="carousel-card" data-tab="2" style="display:none;">
+        <div class="carousel-images">
+          <img src="https://Manavdeveloper.github.io/Hs-creatives/Portfolio4/Posts/PHOTO-2026-04-09-23-34-06 (2).jpg" class="carousel-main" />
+        </div>
+      </div>
+      <div class="carousel-card" data-tab="2" style="display:none;">
+        <div class="carousel-images">
+          <img src="https://Manavdeveloper.github.io/Hs-creatives/Portfolio4/Posts/PHOTO-2026-04-09-23-40-15 (1).jpg" class="carousel-main" />
+        </div>
+      </div>
+      <div class="carousel-card" data-tab="2" style="display:none;">
+        <div class="carousel-images">
+          <img src="https://Manavdeveloper.github.io/Hs-creatives/Portfolio4/Posts/PHOTO-2026-04-09-23-40-15.jpg" class="carousel-main" />
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-btn carousel-prev" onclick="carouselPrev()">←</button>
+    <button class="carousel-btn carousel-next" onclick="carouselNext()">→</button>
+
+    <div class="carousel-dots" id="dots">
+      <span class="dot active" onclick="carouselGo(0)"></span>
+      <span class="dot" onclick="carouselGo(1)"></span>
+      <span class="dot" onclick="carouselGo(2)"></span>
+      <span class="dot" onclick="carouselGo(3)"></span>
+      <span class="dot" onclick="carouselGo(4)"></span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrapper">
+    <p class="section-label">Get In Touch</p>
+    <h2 class="section-title">Start a Conversation</h2>
+
+    <form id="contactForm" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" required />
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label>Service</label>
+        <input type="text" name="service" placeholder="Logo Design / Post Design / Menu & Catalogue" />
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea name="message" required></textarea>
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </div>
+      <div class="form-success" id="formSuccess">✓ Message sent. We'll be in touch soon.</div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-copy">© 2026 HS Creatives. All rights reserved.</p>
+  <div class="footer-socials">
+    <a href="#">Instagram</a>
+    <a href="#">Behance</a>
+    <a href="#">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+  let currentTab = 0;
+  let currentSlide = 0;
+
+  function switchTab(tab) {
+    currentTab = tab;
+    currentSlide = 0;
+    
+    document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+      btn.classList.toggle('active', i === tab);
+    });
+    
+    document.querySelectorAll('.carousel-card').forEach(card => {
+      card.style.display = card.dataset.tab == tab ? 'flex' : 'none';
+    });
+    
+    updateDots();
+    updateCarousel();
+  }
+
+  function updateCarousel() {
+    const offset = -currentSlide * 100;
+    document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
+  }
+
+  function carouselNext() {
+    const cards = document.querySelectorAll(`[data-tab="${currentTab}"]`);
+    currentSlide = (currentSlide + 1) % cards.length;
+    updateCarousel();
+  }
+
+  function carouselPrev() {
+    const cards = document.querySelectorAll(`[data-tab="${currentTab}"]`);
+    currentSlide = (currentSlide - 1 + cards.length) % cards.length;
+    updateCarousel();
+  }
+
+  function carouselGo(index) {
+    currentSlide = index;
+    updateCarousel();
+  }
+
+  function updateDots() {
+    const cards = document.querySelectorAll(`[data-tab="${currentTab}"]`);
+    const dotsHTML = Array(cards.length).fill().map((_, i) => 
+      `<span class="dot ${i === 0 ? 'active' : ''}" onclick="carouselGo(${i})"></span>`
+    ).join('');
+    document.getElementById('dots').innerHTML = dotsHTML;
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    
+    setTimeout(() => {
+      document.getElementById('formSuccess').style.display = 'block';
+      e.target.reset();
+      btn.textContent = 'Send Message';
+      btn.disabled = false;
+    }, 1000);
+  }
+
+  setInterval(() => carouselNext(), 6000);
+</script>
+</body>
+</html>

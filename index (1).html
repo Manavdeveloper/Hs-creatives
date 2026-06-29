@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>HS Creatives — Design Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --black: #000000;
+    --black-2: #0f0f0f;
+    --black-3: #1a1a1a;
+    --gold: #c9a12e;
+    --gold-light: #deb547;
+    --white: #ffffff;
+    --cream: #f5f1e8;
+    --muted: #8b8b7f;
+    --border: rgba(201, 161, 46, 0.15);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--black);
+    color: var(--cream);
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1.5rem 6%;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-logo img {
+    height: 42px;
+    object-fit: contain;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 8rem 6% 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at 50% 50%, rgba(201, 161, 46, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 1s ease-out;
+  }
+
+  .hero-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 1s ease-out 0.2s backwards;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 1s ease-out 0.4s backwards;
+  }
+
+  .hero-title em { color: var(--gold); font-style: italic; }
+
+  .hero-desc {
+    font-size: 0.8rem;
+    line-height: 1.8;
+    color: var(--muted);
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
+    animation: fadeInUp 1s ease-out 0.6s backwards;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 1s ease-out 0.8s backwards;
+  }
+
+  .btn {
+    padding: 0.85rem 2.2rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    border: 1px solid var(--gold);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--black);
+  }
+
+  .btn-primary:hover { background: var(--gold-light); border-color: var(--gold-light); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--gold);
+  }
+
+  .btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(201, 161, 46, 0.1);
+    transition: left 0.4s ease;
+    z-index: -1;
+  }
+
+  .btn-secondary:hover::before { left: 0; }
+  .btn-secondary:hover { color: var(--gold-light); }
+
+  /* SECTION */
+  section { padding: 5rem 6%; }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 300;
+    line-height: 1.2;
+  }
+
+  .section-title em { color: var(--gold); font-style: italic; }
+
+  /* SERVICES */
+  #services { background: var(--black-2); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--border);
+  }
+
+  .service-item {
+    padding: 2.5rem;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.4s ease;
+    position: relative;
+  }
+
+  .service-item:nth-child(3n) { border-right: none; }
+  .service-item:nth-child(n+4) { border-bottom: none; }
+
+  .service-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--gold);
+    transition: height 0.4s ease;
+  }
+
+  .service-item:hover::before { height: 100%; }
+  .service-item:hover { background: rgba(201, 161, 46, 0.05); }
+
+  .service-num {
+    font-size: 2.2rem;
+    color: rgba(201, 161, 46, 0.08);
+    margin-bottom: 0.8rem;
+    font-weight: 300;
+  }
+
+  .service-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    transition: color 0.3s ease;
+  }
+
+  .service-item:hover .service-title { color: var(--gold); }
+
+  .service-desc {
+    font-size: 0.7rem;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  /* PORTFOLIO */
+  #portfolio { background: var(--black); }
+
+  .portfolio-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-bottom: 3.5rem;
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    padding: 0.65rem 1.8rem;
+    background: transparent;
+    border: 1px solid var(--muted);
+    color: var(--muted);
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+  }
+
+  .tab-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .tab-btn.active { background: var(--gold); border-color: var(--gold); color: var(--black); }
+  .tab-btn.active::after { width: 0; }
+
+  .carousel-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .carousel-wrapper {
+    position: relative;
+    background: var(--black-3);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+
+  .carousel-view {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+  }
+
+  .carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .carousel-slide {
+    width: 100%;
+    flex-shrink: 0;
+    background: var(--black-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: zoomIn 0.6s ease-out;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    background: rgba(201, 161, 46, 0.15);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel-btn:hover { background: rgba(201, 161, 46, 0.25); }
+  .carousel-prev { left: 1.5rem; }
+  .carousel-next { right: 1.5rem; }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 1.5rem;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(201, 161, 46, 0.2);
+    border: 1px solid var(--gold);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .dot.active { background: var(--gold); transform: scale(1.4); }
+
+  /* CONTACT */
+  #contact { background: var(--black-2); }
+
+  .contact-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .form-group {
+    margin-bottom: 1.8rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.62rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.8rem 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-bottom-color: var(--gold);
+    outline: none;
+  }
+
+  .form-group textarea { resize: none; min-height: 120px; }
+
+  .form-submit { text-align: center; margin-top: 2rem; }
+
+  .form-success {
+    display: none;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border: 1px solid var(--gold);
+    background: rgba(201, 161, 46, 0.08);
+    color: var(--gold);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-align: center;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    padding: 2.5rem 6%;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy { font-size: 0.62rem; color: var(--muted); }
+
+  .footer-socials {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .footer-socials a {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-socials a:hover { color: var(--gold); }
+
+  /* ANIMATIONS */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes zoomIn {
+    from { transform: scale(1.05); opacity: 0.8; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  @media (max-width: 900px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .service-item { border-right: none; }
+    .nav-links { gap: 1.5rem; }
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+    .carousel-prev { left: 0.5rem; }
+    .carousel-next { right: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <img src="logo.png" alt="HS Creatives" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-label">Creative Design Studio</p>
+    <h1 class="hero-title">Designs for a Better <em>Tomorrow</em></h1>
+    <p class="hero-desc">We craft distinctive identities and compelling visuals that elevate your brand above the rest.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">Start Your Project</a>
+      <a href="#portfolio" class="btn btn-secondary">Explore Work</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header">
+    <p class="section-label">What We Offer</p>
+    <h2 class="section-title">Our <em>Services</em></h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-item">
+      <div class="service-num">01</div>
+      <h3 class="service-title">Logo Design</h3>
+      <p class="service-desc">Distinctive brand marks and visual identities that resonate with your audience and stand the test of time.</p>
+    </div>
+    <div class="service-item">
+      <div class="service-num">02</div>
+      <h3 class="service-title">Social Media Design</h3>
+      <p class="service-desc">Engaging post designs and visual content tailored to capture attention and drive engagement.</p>
+    </div>
+    <div class="service-item">
+      <div class="service-num">03</div>
+      <h3 class="service-title">Menus & Catalogues</h3>
+      <p class="service-desc">Professional printed and digital materials that showcase your offerings with elegance and clarity.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="section-header">
+    <p class="section-label">Recent Work</p>
+    <h2 class="section-title">Our <em>Portfolio</em></h2>
+  </div>
+
+  <div class="portfolio-tabs">
+    <button class="tab-btn active" onclick="switchTab(0)">Logos</button>
+    <button class="tab-btn" onclick="switchTab(1)">Menus</button>
+    <button class="tab-btn" onclick="switchTab(2)">Posts</button>
+  </div>
+
+  <div class="carousel-container">
+    <div class="carousel-wrapper">
+      <div class="carousel-view">
+        <div class="carousel-track" id="carouselTrack">
+          <!-- Carousel slides loaded by carousel.js -->
+        </div>
+      </div>
+      <button class="carousel-btn carousel-prev" onclick="prevSlide()">‹</button>
+      <button class="carousel-btn carousel-next" onclick="nextSlide()">›</button>
+    </div>
+    <div class="carousel-dots" id="dotsContainer"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header">
+    <p class="section-label">Get In Touch</p>
+    <h2 class="section-title">Start a <em>Conversation</em></h2>
+  </div>
+
+  <div class="contact-wrapper">
+    <form id="contactForm" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" required />
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label>Service Interest</label>
+        <input type="text" name="service" placeholder="Logo / Social Media / Menus" />
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea name="message" required></textarea>
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </div>
+      <div class="form-success" id="formSuccess">✓ Message sent. We'll be in touch soon.</div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-copy">© 2026 HS Creatives. All rights reserved.</p>
+  <div class="footer-socials">
+    <a href="#">Instagram</a>
+    <a href="#">Behance</a>
+    <a href="#">LinkedIn</a>
+  </div>
+</footer>
+
+<script src="carousel.js"></script>
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    setTimeout(() => {
+      document.getElementById('formSuccess').style.display = 'block';
+      e.target.reset();
+      btn.textContent = 'Send Message';
+      btn.disabled = false;
+    }, 1000);
+  }
+</script>
+</body>
+</html>

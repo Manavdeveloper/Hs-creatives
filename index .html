@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Creative Agency</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <img src="logo.png" id="logoImage" alt="Agency Logo">
+
+        <label class="upload-logo">
+            Upload Logo
+            <input type="file"
+                   id="logoUpload"
+                   accept="image/*">
+        </label>
+
+    </div>
+
+    <nav>
+
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<p class="eyebrow">
+CREATIVE AGENCY
+</p>
+
+<h1>
+
+Designs for
+<span> a Better Tomorrow </span>
+
+</h1>
+
+<p class="hero-text">
+
+Luxury branding,
+social media,
+menus,
+catalogues and creative identities
+crafted with precision.
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="#portfolio" class="primary-btn">
+
+View Portfolio
+
+</a>
+
+<a href="#contact" class="secondary-btn">
+
+Start Project
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= SERVICES ================= -->
+
+<section id="services" class="services">
+
+<div class="section-title">
+
+<p>WHAT WE DO</p>
+
+<h2>Creative Services</h2>
+
+</div>
+
+<div class="services-grid">
+
+<div class="service-card">
+
+<span>01</span>
+
+<h3>Logo Design</h3>
+
+<p>
+
+Premium logos that establish memorable
+brand identities.
+
+</p>
+
+</div>
+
+<div class="service-card">
+
+<span>02</span>
+
+<h3>Social Media Design</h3>
+
+<p>
+
+Luxury posts,
+reels covers,
+carousels
+and campaign creatives.
+
+</p>
+
+</div>
+
+<div class="service-card">
+
+<span>03</span>
+
+<h3>Menus & Catalogues</h3>
+
+<p>
+
+Restaurant menus,
+product catalogues
+and premium print layouts.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= PORTFOLIO ================= -->
+
+<section id="portfolio" class="portfolio">
+
+<div class="section-title">
+
+<p>OUR WORK</p>
+
+<h2>Portfolio</h2>
+
+</div>
+
+<!-- Upload -->
+
+<div class="upload-area">
+
+<label>
+
+Upload Portfolio Images
+
+<input
+type="file"
+id="portfolioUpload"
+accept="image/*"
+multiple
+hidden>
+
+</label>
+
+</div>
+
+<!-- Tabs -->
+
+<div class="portfolio-tabs">
+
+<button class="tab active"
+data-category="logos">
+
+Logos
+
+</button>
+
+<button class="tab"
+data-category="menus">
+
+Menus
+
+</button>
+
+<button class="tab"
+data-category="posts">
+
+Posts
+
+</button>
+
+</div>
+
+<!-- Carousel -->
+
+<div class="carousel-wrapper">
+
+<button
+class="arrow prev">
+
+&#10094;
+
+</button>
+
+<div class="carousel">
+
+<div
+class="carousel-track">
+
+<!-- JS injects slides -->
+
+</div>
+
+</div>
+
+<button
+class="arrow next">
+
+&#10095;
+
+</button>
+
+</div>
+
+<div
+class="dots">
+
+<!-- JS -->
+
+</div>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section
+id="contact"
+class="contact">
+
+<div
+class="section-title">
+
+<p>GET IN TOUCH</p>
+
+<h2>Let's Build Something</h2>
+
+</div>
+
+<form
+
+id="contactForm"
+
+action="https://formspree.io/f/YOUR_FORM_ID"
+
+method="POST">
+
+<input
+type="text"
+name="name"
+placeholder="Name"
+required>
+
+<input
+type="email"
+name="email"
+placeholder="Email"
+required>
+
+<select
+name="service">
+
+<option>
+
+Logo Design
+
+</option>
+
+<option>
+
+Social Media
+
+</option>
+
+<option>
+
+Menus & Catalogues
+
+</option>
+
+</select>
+
+<textarea
+
+name="message"
+
+rows="5"
+
+placeholder="Tell us about your project"
+
+required>
+
+</textarea>
+
+<button
+type="submit"
+id="submitBtn">
+
+Send Message
+
+</button>
+
+<p
+class="success-message">
+
+</p>
+
+</form>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<p>
+
+© 2026 Luxury Creative Agency
+
+</p>
+
+<div class="socials">
+
+<a href="#">
+
+Instagram
+
+</a>
+
+<a href="#">
+
+Behance
+
+</a>
+
+<a href="#">
+
+LinkedIn
+
+</a>
+
+</div>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
